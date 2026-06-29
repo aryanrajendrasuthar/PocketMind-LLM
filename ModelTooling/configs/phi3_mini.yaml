@@ -1,0 +1,57 @@
+# PocketMind — On-Device Private LLM for iPhone
+# Copyright (c) 2026 Aryan Suthar. All Rights Reserved.
+#
+# PROPRIETARY AND CONFIDENTIAL
+# Unauthorized copying, distribution, modification, or use of this file,
+# via any medium, is strictly prohibited without the express written
+# permission of the copyright owner.
+#
+# For licensing inquiries: aryanrajendrasuthar@gmail.com
+
+model_id: "phi3_mini"
+display_name: "Phi-3 Mini 3.8B Instruct"
+huggingface_repo: "microsoft/Phi-3-mini-4k-instruct"
+
+parameters:
+  count: 3_800_000_000
+  context_length: 4096
+  target_context_length: 4096
+
+quantization:
+  method: "Q4_K_M"
+  output_format: "gguf"
+
+coreml:
+  output_name: "pocketmind_phi3_mini"
+  minimum_ios: "17.0"
+  compute_units: "ALL"
+  precision: "FLOAT16"
+
+hardware:
+  min_device: "iPhone 15 Pro"
+  min_chip: "A17"
+  min_ram_gb: 6
+
+size_estimates:
+  fp16_gb: 7.6
+  int4_gb: 2.3
+
+performance_targets:
+  time_to_first_token_sec: 3.0
+  min_tokens_per_sec: 5
+  max_peak_memory_mb: 2900
+
+manifest:
+  version: "1.0.0"
+  capabilities:
+    - "reasoning"
+    - "writing"
+    - "code"
+    - "summarization"
+    - "math"
+  offline_limitations:
+    - "no_live_data"
+    - "no_web_search"
+    - "no_real_time_events"
+  knowledge_cutoff: "2024-04"
+  max_tokens: 512

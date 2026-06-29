@@ -1,0 +1,73 @@
+PROPRIETARY SOFTWARE LICENSE
+
+PocketMind — On-Device Private LLM for iPhone
+
+Copyright (c) 2026 Aryan Suthar. All Rights Reserved.
+
+PROPRIETARY AND CONFIDENTIAL
+
+This software and associated documentation files (the "Software") are the exclusive
+property of Aryan Suthar ("Owner"). The Software is proprietary and confidential.
+
+GRANT OF LICENSE
+
+No license, express or implied, by estoppel or otherwise, to any intellectual
+property rights is granted by this document. All rights are reserved.
+
+RESTRICTIONS
+
+You may NOT, without the express prior written permission of the Owner:
+
+1. Copy, reproduce, or duplicate the Software or any portion thereof.
+2. Distribute, publish, sublicense, sell, resell, transfer, assign, or otherwise
+   dispose of the Software.
+3. Modify, translate, adapt, or create derivative works based upon the Software.
+4. Reverse engineer, disassemble, decompile, decode, adapt, or otherwise attempt
+   to derive or gain access to the source code of the Software.
+5. Remove, delete, alter, or obscure any proprietary notices, labels, or marks
+   on or in any copy of the Software.
+6. Use the Software for any purpose that is unlawful or prohibited by these terms.
+7. Use the Software in any manner that could damage, disable, overburden, or
+   impair the Software or servers or networks connected to the Software.
+
+OWNERSHIP
+
+The Software is and remains the property of the Owner. Your use of the Software
+does not grant you any ownership rights in the Software.
+
+CONFIDENTIALITY
+
+The Software constitutes trade secrets and proprietary information of the Owner.
+You agree to maintain the confidentiality of the Software using at least the same
+degree of care that you use to protect your own confidential information, but in
+no event less than reasonable care.
+
+NO WARRANTIES
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. THE OWNER MAKES NO WARRANTY THAT
+THE SOFTWARE WILL MEET YOUR REQUIREMENTS OR THAT THE OPERATION OF THE SOFTWARE
+WILL BE UNINTERRUPTED OR ERROR-FREE.
+
+LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE OWNER BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, CONSEQUENTIAL, OR PUNITIVE DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THE SOFTWARE, EVEN IF ADVISED
+OF THE POSSIBILITY OF SUCH DAMAGE.
+
+GOVERNING LAW
+
+This License shall be governed by and construed in accordance with the laws of
+the State of Arizona, United States of America, without regard to its conflict
+of law provisions.
+
+CONTACT
+
+For licensing inquiries, permissions, or other matters:
+Email: aryanrajendrasuthar@gmail.com
+Repository: github.com/aryanrajendrasuthar/PocketMind-LLM

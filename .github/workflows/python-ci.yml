@@ -1,0 +1,43 @@
+name: Python CI (Model Tooling)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'ModelTooling/**'
+  push:
+    branches: [main]
+    paths:
+      - 'ModelTooling/**'
+
+jobs:
+  lint-and-test:
+    name: Lint & Test (Python)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: ModelTooling/requirements.txt
+
+      - name: Install dependencies
+        working-directory: ModelTooling
+        run: pip install -r requirements.txt
+
+      - name: flake8 — zero errors
+        working-directory: ModelTooling
+        run: flake8 scripts/ tests/ --max-line-length=100 --statistics
+
+      - name: mypy — strict
+        working-directory: ModelTooling
+        run: mypy scripts/ tests/ --strict --ignore-missing-imports
+
+      - name: pytest
+        working-directory: ModelTooling
+        run: pytest tests/ -v --tb=short
