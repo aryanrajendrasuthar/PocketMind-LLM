@@ -111,7 +111,11 @@ final class ModelDownloadManager: NSObject, ObservableObject {
     }
 
     private func manifestURL(for modelId: String) -> URL {
-        URL(string: "\(Constants.ModelDownload.manifestBaseURL)/\(modelId)/\(Constants.ModelDownload.manifestFilename)")!
+        // manifestBaseURL is a compile-time constant — URL init is guaranteed to succeed.
+        // swiftlint:disable:next force_unwrapping
+        URL(string: Constants.ModelDownload.manifestBaseURL)!
+            .appendingPathComponent(modelId)
+            .appendingPathComponent(Constants.ModelDownload.manifestFilename)
     }
 
     private func refreshDownloadedModels() {
@@ -276,11 +280,3 @@ extension ModelDownloadManager: URLSessionDownloadDelegate {
     }
 }
 
-// MARK: - Network monitor stub
-
-/// Lightweight connectivity observer (replaced by NWPathMonitor in production).
-private final class NetworkMonitor {
-    static let shared = NetworkMonitor()
-    enum ConnectionType { case wifi, cellular, none }
-    var connectionType: ConnectionType { .wifi }  // default; wired up via NWPathMonitor in Sprint 6
-}

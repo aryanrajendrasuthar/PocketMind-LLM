@@ -22,6 +22,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         logger.info("PocketMind launched.")
+        NetworkMonitor.shared.start()
         return true
     }
 

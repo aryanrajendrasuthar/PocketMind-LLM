@@ -46,7 +46,7 @@ enum SecureEnclaveKeyManager {
     static func deleteKey() throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassKey,
-            kSecAttrApplicationTag as String: Constants.Keychain.secureEnclaveKeyTag.data(using: .utf8)!,
+            kSecAttrApplicationTag as String: Data(Constants.Keychain.secureEnclaveKeyTag.utf8),
             kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
         ]
         let status = SecItemDelete(query as CFDictionary)
@@ -66,7 +66,7 @@ enum SecureEnclaveKeyManager {
     }
 
     private static func loadKey() throws -> SecKey {
-        let tag = Constants.Keychain.secureEnclaveKeyTag.data(using: .utf8)!
+        let tag = Data(Constants.Keychain.secureEnclaveKeyTag.utf8)
         let query: [String: Any] = [
             kSecClass as String: kSecClassKey,
             kSecAttrApplicationTag as String: tag,
@@ -75,15 +75,14 @@ enum SecureEnclaveKeyManager {
         ]
         var result: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
-        guard status == errSecSuccess, let key = result else {
+        guard status == errSecSuccess, let secKey = result, CFGetTypeID(secKey) == SecKeyGetTypeID() else {
             throw KeyManagerError.keychainError(status)
         }
-        // swiftlint:disable:next force_cast
-        return (key as! SecKey)
+        return secKey as! SecKey  // swiftlint:disable:this force_cast — type checked via CFGetTypeID above
     }
 
     private static func createKey() throws -> SecKey {
-        let tag = Constants.Keychain.secureEnclaveKeyTag.data(using: .utf8)!
+        let tag = Data(Constants.Keychain.secureEnclaveKeyTag.utf8)
 
         let accessControl = try makeAccessControl()
         let attributes: [String: Any] = [
