@@ -28,6 +28,15 @@
 		<false/>
 	</dict>
 
+	<!-- Certificate pinning: SHA-256 hex of the CDN leaf certificate's SubjectPublicKeyInfo (DER).
+	     Generate with: openssl s_client -connect models.pocketmind.app:443 | \
+	                    openssl x509 -pubkey -noout | \
+	                    openssl pkey -pubin -outform DER | \
+	                    sha256sum
+	     Leave empty string to skip pinning in local development (see ModelDownloadManager). -->
+	<key>PinnedCDNPublicKeyHash</key>
+	<string></string>
+
 	<!-- Privacy usage strings -->
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>PocketMind uses on-device speech recognition to let you speak your messages. Audio is never sent to Apple's servers when using local recognition.</string>
