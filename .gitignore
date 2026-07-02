@@ -87,4 +87,5 @@ AuthKey_*.p8
 .vscode/settings.json
 
 # ─── Local dev notes (never commit) ──────────────────────────────────────────
+CLAUDE.md
 CLAUDE_pocketmind_llm.md
