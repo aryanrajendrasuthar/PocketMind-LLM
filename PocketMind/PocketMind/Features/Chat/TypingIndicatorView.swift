@@ -36,7 +36,7 @@ struct TypingIndicatorView: View {
             .padding(.horizontal, 14)
             .padding(.vertical, 10)
             .background(Color(.secondarySystemBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 18))
+            .clipShape(RoundedRectangle(cornerRadius: 20))
 
             Spacer(minLength: 48)
         }

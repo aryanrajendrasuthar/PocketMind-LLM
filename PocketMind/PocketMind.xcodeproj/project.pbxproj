@@ -1,0 +1,880 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08EB6ADFEB990ABD64515542 /* EmbeddingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798AA70F9B592A3168C0C74F /* EmbeddingService.swift */; };
+		0BDC6D14E7A4491629176D04 /* pocketmind_llama32_1b.mlpackage in Resources */ = {isa = PBXBuildFile; fileRef = 95DA753994103781F8602172 /* pocketmind_llama32_1b.mlpackage */; };
+		18A6181102A5680FCD4864F0 /* ClassifierRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0DE6E8456BE13A43F41FA /* ClassifierRules.swift */; };
+		1FE1B85178FEE712EC87CF2D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A47D66EA9A46CE764936A /* NetworkMonitor.swift */; };
+		27E9C7129E095B6F76EC428A /* MemoryManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82ED2AB7E89BE107BE91D7E /* MemoryManagerTests.swift */; };
+		29D47972F4843C2864974C2A /* OnboardingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC7969D39BE6C4A47AC928F /* OnboardingUITests.swift */; };
+		2AF6A3B01C4514836C3FDA0C /* OnboardingCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663271A0A9212780E73AFF9B /* OnboardingCompleteView.swift */; };
+		2E98556CEDD45A4A933EECAE /* CapabilityBoundaryClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4578AA2889323232A1BF82 /* CapabilityBoundaryClassifierTests.swift */; };
+		38B1425EDFFF68C6161B678C /* ModelInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30479BADEFB7CD72F29C4B79 /* ModelInfoTests.swift */; };
+		40D7C117318AB1733B013AD8 /* tokenizer.json in Resources */ = {isa = PBXBuildFile; fileRef = D6DA70210DC8E9B4DF463518 /* tokenizer.json */; };
+		451D90934E1753E9E6D824F3 /* QueryCapability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360FFB00EB2473FC8C474988 /* QueryCapability.swift */; };
+		45D45DC3B74FB561223E8B41 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38DD98AE58B9D60F4085DB /* ChatView.swift */; };
+		4A89D2A71339C28419176D92 /* ChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBDE3C75F5CBAEC76D19067 /* ChatUITests.swift */; };
+		5CF99D6A90BAE888005F71E0 /* InferenceEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33719E2777C5A831BA1DE27C /* InferenceEngineTests.swift */; };
+		66E12CC187F891DD8DAD1308 /* InferenceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349606B42A4E3F40378924E0 /* InferenceToken.swift */; };
+		690711168E51B455855CC544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3466C631688CBFD67D7726 /* AppDelegate.swift */; };
+		71248BB4E0EFEFB573E87D62 /* CapabilityBoundaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF5ED067135ECB74E15946A /* CapabilityBoundaryView.swift */; };
+		716A254B9231CA9AC6569AA7 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FC02746FDA4EEE48A9F7AA /* ChatViewModel.swift */; };
+		72DB9E2EFDC4EE7B1470A77D /* InferenceEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBF5722DF791D214DFCB22 /* InferenceEngine.swift */; };
+		7650AE80E3F662BA067A5183 /* PocketMindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBDE7E33AF5A23620D319E /* PocketMindApp.swift */; };
+		79AB5F4CBB30CCD1CA1AC32F /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89CB90B43786ECA08BBF9F /* Conversation.swift */; };
+		7E0194FF8C24CEE410AFE5CB /* ModelDownloadManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F813A7CCB9D84C7207277CE /* ModelDownloadManagerTests.swift */; };
+		7EC73A336D5B3E646935578B /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514BD7E57ADF2F4505F7C3C /* Tokenizer.swift */; };
+		8A2AC559AF3D1D5A7693E638 /* CapabilityBoundaryClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F89AE77FB6A36DBA4B50F8F /* CapabilityBoundaryClassifier.swift */; };
+		934FC568DDB724F803FC2B6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2DF363CEE41AA517355E75 /* Constants.swift */; };
+		976848EAE4242B6EC020274C /* SecureEnclaveKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AB53FD85A32FF39BFCCCB9 /* SecureEnclaveKeyManager.swift */; };
+		A447BEAC974672DEFA87CF49 /* ModelDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAE9DDB2FBC7A9DC8CA7FF /* ModelDownloadView.swift */; };
+		A88BE20D08EAF1D36E994667 /* ChatViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E265BA45F5D52E7765D1E6C7 /* ChatViewModelTests.swift */; };
+		ACF692D98042EB67931CD08D /* PrivacyVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6872C4F6F2F405D3EF4AF97 /* PrivacyVault.swift */; };
+		B2B787398EE3829D8FD69D21 /* ModelSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B93B0B9BC2BF9E1E40E342 /* ModelSelectionView.swift */; };
+		B6EC4B2399B466763C01CE23 /* TypingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA42C2AD29F1F2C67DC0D39A /* TypingIndicatorView.swift */; };
+		BA54DEF5DC40B1CB6D264E23 /* ModelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA81DB61751BB1DA1D0E28D /* ModelInfo.swift */; };
+		BA6E5E203F9BB6BD6338142C /* MemoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E834F73330B0BE4858700E5 /* MemoryManager.swift */; };
+		C22D0ECEEB75B0F4DC917D58 /* ContentRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E0B74DC55C2C145CA3D68 /* ContentRootView.swift */; };
+		CB121870246D423CDBB42B34 /* RAGEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E64449868C31FE3FF3B7C6 /* RAGEngine.swift */; };
+		CE0401D01A37ED1FF4BC0D81 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BC3080CEB66F8372DF984F /* WelcomeView.swift */; };
+		D402760F8A7EC61D1826C8FD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0B61DD2322D199392C535B /* SettingsView.swift */; };
+		E2421DA10E00200AAF40B61D /* OnboardingFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663E41ACAB49B2A3563EC01 /* OnboardingFlowView.swift */; };
+		E7A3302627AF36B14BD1FDB5 /* ModelDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A648F3155FD2835AE322151 /* ModelDownloadManager.swift */; };
+		E92981675684D64C2E4ADA3D /* VectorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4523891EFBF9144CF948E /* VectorStore.swift */; };
+		EC522C5539E9F8C829335E08 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B003721AF4768BDD66EA219D /* PrivacyInfo.xcprivacy */; };
+		F137175724E9F743613DC6C5 /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD74DEA7F7205ADB38FD91 /* MessageBubbleView.swift */; };
+		F1C72AA154443117329A31BB /* TokenizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D08DA91EF6A0B03CC0D6AB /* TokenizerTests.swift */; };
+		F38A5A9E332242EBFA44718D /* VoiceInputService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF538BC38FE172B6EAD383E /* VoiceInputService.swift */; };
+		F5F684AD2F0142A40810FA43 /* TextChunker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25DAEC215C382DCFE844A3E /* TextChunker.swift */; };
+		FF6F9595D5F3B0EF1C1CC010 /* PrivacyVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3BBF5C47D59864830A325A /* PrivacyVaultTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6F2387FF6022A86ADA1806D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D1E71B52054D88B58BBE3A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D0CA2ECB46D2B4FDA80A257;
+			remoteInfo = PocketMind;
+		};
+		9C9FEFEB0118C38466AFB111 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D1E71B52054D88B58BBE3A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D0CA2ECB46D2B4FDA80A257;
+			remoteInfo = PocketMind;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09BC3080CEB66F8372DF984F /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		0C3F16883719010E9391350D /* PocketMind.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PocketMind.entitlements; sourceTree = "<group>"; };
+		12AB53FD85A32FF39BFCCCB9 /* SecureEnclaveKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureEnclaveKeyManager.swift; sourceTree = "<group>"; };
+		1A648F3155FD2835AE322151 /* ModelDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadManager.swift; sourceTree = "<group>"; };
+		1F3BBF5C47D59864830A325A /* PrivacyVaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyVaultTests.swift; sourceTree = "<group>"; };
+		30479BADEFB7CD72F29C4B79 /* ModelInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoTests.swift; sourceTree = "<group>"; };
+		32EAE9DDB2FBC7A9DC8CA7FF /* ModelDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadView.swift; sourceTree = "<group>"; };
+		33719E2777C5A831BA1DE27C /* InferenceEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceEngineTests.swift; sourceTree = "<group>"; };
+		349606B42A4E3F40378924E0 /* InferenceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceToken.swift; sourceTree = "<group>"; };
+		360FFB00EB2473FC8C474988 /* QueryCapability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCapability.swift; sourceTree = "<group>"; };
+		42EBDE7E33AF5A23620D319E /* PocketMindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketMindApp.swift; sourceTree = "<group>"; };
+		4514BD7E57ADF2F4505F7C3C /* Tokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
+		496CEA815F3CE084AE84F4DB /* PocketMindTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PocketMindTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E834F73330B0BE4858700E5 /* MemoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManager.swift; sourceTree = "<group>"; };
+		4EF538BC38FE172B6EAD383E /* VoiceInputService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputService.swift; sourceTree = "<group>"; };
+		50E64449868C31FE3FF3B7C6 /* RAGEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAGEngine.swift; sourceTree = "<group>"; };
+		574147C5CD4FB325A4A68054 /* PocketMindUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PocketMindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF5ED067135ECB74E15946A /* CapabilityBoundaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapabilityBoundaryView.swift; sourceTree = "<group>"; };
+		5CA81DB61751BB1DA1D0E28D /* ModelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfo.swift; sourceTree = "<group>"; };
+		5CBDE3C75F5CBAEC76D19067 /* ChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUITests.swift; sourceTree = "<group>"; };
+		663271A0A9212780E73AFF9B /* OnboardingCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteView.swift; sourceTree = "<group>"; };
+		6663E41ACAB49B2A3563EC01 /* OnboardingFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowView.swift; sourceTree = "<group>"; };
+		6F2E0B74DC55C2C145CA3D68 /* ContentRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRootView.swift; sourceTree = "<group>"; };
+		798AA70F9B592A3168C0C74F /* EmbeddingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddingService.swift; sourceTree = "<group>"; };
+		7F813A7CCB9D84C7207277CE /* ModelDownloadManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDownloadManagerTests.swift; sourceTree = "<group>"; };
+		7F89AE77FB6A36DBA4B50F8F /* CapabilityBoundaryClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapabilityBoundaryClassifier.swift; sourceTree = "<group>"; };
+		8B0A47D66EA9A46CE764936A /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		8B38DD98AE58B9D60F4085DB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		95DA753994103781F8602172 /* pocketmind_llama32_1b.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pocketmind_llama32_1b.mlpackage; path = PocketMind/Models/pocketmind_llama32_1b.mlpackage; sourceTree = SOURCE_ROOT; };
+		9BA4523891EFBF9144CF948E /* VectorStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorStore.swift; sourceTree = "<group>"; };
+		9D3466C631688CBFD67D7726 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A8D08DA91EF6A0B03CC0D6AB /* TokenizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizerTests.swift; sourceTree = "<group>"; };
+		AC62D105304C003E0302B09B /* PocketMind.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PocketMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE0B61DD2322D199392C535B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B003721AF4768BDD66EA219D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		B1FC02746FDA4EEE48A9F7AA /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		B2B93B0B9BC2BF9E1E40E342 /* ModelSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelectionView.swift; sourceTree = "<group>"; };
+		B3CE4925C4DBDF7717BB5257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B7B0DE6E8456BE13A43F41FA /* ClassifierRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifierRules.swift; sourceTree = "<group>"; };
+		BABD74DEA7F7205ADB38FD91 /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
+		BD4578AA2889323232A1BF82 /* CapabilityBoundaryClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapabilityBoundaryClassifierTests.swift; sourceTree = "<group>"; };
+		C4DBF5722DF791D214DFCB22 /* InferenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferenceEngine.swift; sourceTree = "<group>"; };
+		CB2DF363CEE41AA517355E75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFC7969D39BE6C4A47AC928F /* OnboardingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUITests.swift; sourceTree = "<group>"; };
+		D6872C4F6F2F405D3EF4AF97 /* PrivacyVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyVault.swift; sourceTree = "<group>"; };
+		D6DA70210DC8E9B4DF463518 /* tokenizer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tokenizer.json; sourceTree = "<group>"; };
+		DA89CB90B43786ECA08BBF9F /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		E25DAEC215C382DCFE844A3E /* TextChunker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChunker.swift; sourceTree = "<group>"; };
+		E265BA45F5D52E7765D1E6C7 /* ChatViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTests.swift; sourceTree = "<group>"; };
+		E82ED2AB7E89BE107BE91D7E /* MemoryManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManagerTests.swift; sourceTree = "<group>"; };
+		EA42C2AD29F1F2C67DC0D39A /* TypingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingIndicatorView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0E415DEE4FC5753F847EFA13 /* PocketMindUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5CBDE3C75F5CBAEC76D19067 /* ChatUITests.swift */,
+				CFC7969D39BE6C4A47AC928F /* OnboardingUITests.swift */,
+			);
+			path = PocketMindUITests;
+			sourceTree = "<group>";
+		};
+		25313DB623EBA457E472CBCA /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				8B38DD98AE58B9D60F4085DB /* ChatView.swift */,
+				B1FC02746FDA4EEE48A9F7AA /* ChatViewModel.swift */,
+				BABD74DEA7F7205ADB38FD91 /* MessageBubbleView.swift */,
+				EA42C2AD29F1F2C67DC0D39A /* TypingIndicatorView.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		2BA296145C4B6AB8D8A78328 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				769E5132B1F182659BA2E4EF /* Classifier */,
+				FF50057B6A095F4C65CE64A3 /* Inference */,
+				45E83E105A015348AFD190A9 /* Memory */,
+				3ABA1604A7A2EF28F1104316 /* Privacy */,
+				5EF2576AFD54D799AD0C873D /* RAG */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2E7EED8A8DC54AD78973E027 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3CE4925C4DBDF7717BB5257 /* Info.plist */,
+				0C3F16883719010E9391350D /* PocketMind.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		374417CE1E74A4CF3238925A /* ChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				E265BA45F5D52E7765D1E6C7 /* ChatViewModelTests.swift */,
+			);
+			path = ChatTests;
+			sourceTree = "<group>";
+		};
+		38B25B0EF8375FC325BBA43F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC62D105304C003E0302B09B /* PocketMind.app */,
+				496CEA815F3CE084AE84F4DB /* PocketMindTests.xctest */,
+				574147C5CD4FB325A4A68054 /* PocketMindUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3ABA1604A7A2EF28F1104316 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				D6872C4F6F2F405D3EF4AF97 /* PrivacyVault.swift */,
+				12AB53FD85A32FF39BFCCCB9 /* SecureEnclaveKeyManager.swift */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+		45E83E105A015348AFD190A9 /* Memory */ = {
+			isa = PBXGroup;
+			children = (
+				4E834F73330B0BE4858700E5 /* MemoryManager.swift */,
+			);
+			path = Memory;
+			sourceTree = "<group>";
+		};
+		4E3B4BF930E93011CD7D0BFD /* PrivacyTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F3BBF5C47D59864830A325A /* PrivacyVaultTests.swift */,
+			);
+			path = PrivacyTests;
+			sourceTree = "<group>";
+		};
+		5C500585ED7C3AFC36CA3CFA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AE0B61DD2322D199392C535B /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5EF2576AFD54D799AD0C873D /* RAG */ = {
+			isa = PBXGroup;
+			children = (
+				798AA70F9B592A3168C0C74F /* EmbeddingService.swift */,
+				50E64449868C31FE3FF3B7C6 /* RAGEngine.swift */,
+				E25DAEC215C382DCFE844A3E /* TextChunker.swift */,
+				9BA4523891EFBF9144CF948E /* VectorStore.swift */,
+			);
+			path = RAG;
+			sourceTree = "<group>";
+		};
+		64832DA76019243BDBD3EDF2 /* PocketMindTests */ = {
+			isa = PBXGroup;
+			children = (
+				374417CE1E74A4CF3238925A /* ChatTests */,
+				ECD0A1C8EE00648E8F74B838 /* ClassifierTests */,
+				9F6BBC9F70F5461C6C18D48E /* DownloadTests */,
+				E9EF9E9AB739CCF8617CDC2B /* InferenceTests */,
+				F6F143E16AE03AC3EB236C5A /* MemoryTests */,
+				D26A3AB46890AFE782A524B1 /* ModelTests */,
+				4E3B4BF930E93011CD7D0BFD /* PrivacyTests */,
+			);
+			path = PocketMindTests;
+			sourceTree = "<group>";
+		};
+		769E5132B1F182659BA2E4EF /* Classifier */ = {
+			isa = PBXGroup;
+			children = (
+				7F89AE77FB6A36DBA4B50F8F /* CapabilityBoundaryClassifier.swift */,
+				B7B0DE6E8456BE13A43F41FA /* ClassifierRules.swift */,
+				360FFB00EB2473FC8C474988 /* QueryCapability.swift */,
+			);
+			path = Classifier;
+			sourceTree = "<group>";
+		};
+		7747B62FFC46BF354B0361F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B003721AF4768BDD66EA219D /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		79343D0F01340BD9EB24C294 /* CapabilityBoundary */ = {
+			isa = PBXGroup;
+			children = (
+				5BF5ED067135ECB74E15946A /* CapabilityBoundaryView.swift */,
+			);
+			path = CapabilityBoundary;
+			sourceTree = "<group>";
+		};
+		8493EFD2701F5F9648BBCDF4 /* PocketMind */ = {
+			isa = PBXGroup;
+			children = (
+				E8EFF3A1DDC6B5D95C58F8EC /* App */,
+				2BA296145C4B6AB8D8A78328 /* Core */,
+				B21794AC3783154AF4D00335 /* Features */,
+				9B7A506BA9B3BFD8F72784C8 /* Models */,
+				7747B62FFC46BF354B0361F0 /* Resources */,
+				D100656115CD6398166C5F4A /* Services */,
+				2E7EED8A8DC54AD78973E027 /* Supporting Files */,
+			);
+			path = PocketMind;
+			sourceTree = "<group>";
+		};
+		8E18CD43F6064C52ACD82E4C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				32EAE9DDB2FBC7A9DC8CA7FF /* ModelDownloadView.swift */,
+				B2B93B0B9BC2BF9E1E40E342 /* ModelSelectionView.swift */,
+				663271A0A9212780E73AFF9B /* OnboardingCompleteView.swift */,
+				6663E41ACAB49B2A3563EC01 /* OnboardingFlowView.swift */,
+				09BC3080CEB66F8372DF984F /* WelcomeView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9B7A506BA9B3BFD8F72784C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB2DF363CEE41AA517355E75 /* Constants.swift */,
+				DA89CB90B43786ECA08BBF9F /* Conversation.swift */,
+				5CA81DB61751BB1DA1D0E28D /* ModelInfo.swift */,
+				95DA753994103781F8602172 /* pocketmind_llama32_1b.mlpackage */,
+				D6DA70210DC8E9B4DF463518 /* tokenizer.json */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9F6BBC9F70F5461C6C18D48E /* DownloadTests */ = {
+			isa = PBXGroup;
+			children = (
+				7F813A7CCB9D84C7207277CE /* ModelDownloadManagerTests.swift */,
+			);
+			path = DownloadTests;
+			sourceTree = "<group>";
+		};
+		B21794AC3783154AF4D00335 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				79343D0F01340BD9EB24C294 /* CapabilityBoundary */,
+				25313DB623EBA457E472CBCA /* Chat */,
+				8E18CD43F6064C52ACD82E4C /* Onboarding */,
+				5C500585ED7C3AFC36CA3CFA /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		D100656115CD6398166C5F4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B0A47D66EA9A46CE764936A /* NetworkMonitor.swift */,
+				4EF538BC38FE172B6EAD383E /* VoiceInputService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D26A3AB46890AFE782A524B1 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				30479BADEFB7CD72F29C4B79 /* ModelInfoTests.swift */,
+			);
+			path = ModelTests;
+			sourceTree = "<group>";
+		};
+		E1655B2260A05B42271CDFC3 = {
+			isa = PBXGroup;
+			children = (
+				8493EFD2701F5F9648BBCDF4 /* PocketMind */,
+				64832DA76019243BDBD3EDF2 /* PocketMindTests */,
+				0E415DEE4FC5753F847EFA13 /* PocketMindUITests */,
+				38B25B0EF8375FC325BBA43F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E8EFF3A1DDC6B5D95C58F8EC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9D3466C631688CBFD67D7726 /* AppDelegate.swift */,
+				6F2E0B74DC55C2C145CA3D68 /* ContentRootView.swift */,
+				42EBDE7E33AF5A23620D319E /* PocketMindApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E9EF9E9AB739CCF8617CDC2B /* InferenceTests */ = {
+			isa = PBXGroup;
+			children = (
+				33719E2777C5A831BA1DE27C /* InferenceEngineTests.swift */,
+				A8D08DA91EF6A0B03CC0D6AB /* TokenizerTests.swift */,
+			);
+			path = InferenceTests;
+			sourceTree = "<group>";
+		};
+		ECD0A1C8EE00648E8F74B838 /* ClassifierTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD4578AA2889323232A1BF82 /* CapabilityBoundaryClassifierTests.swift */,
+			);
+			path = ClassifierTests;
+			sourceTree = "<group>";
+		};
+		F6F143E16AE03AC3EB236C5A /* MemoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				E82ED2AB7E89BE107BE91D7E /* MemoryManagerTests.swift */,
+			);
+			path = MemoryTests;
+			sourceTree = "<group>";
+		};
+		FF50057B6A095F4C65CE64A3 /* Inference */ = {
+			isa = PBXGroup;
+			children = (
+				C4DBF5722DF791D214DFCB22 /* InferenceEngine.swift */,
+				349606B42A4E3F40378924E0 /* InferenceToken.swift */,
+				1A648F3155FD2835AE322151 /* ModelDownloadManager.swift */,
+				4514BD7E57ADF2F4505F7C3C /* Tokenizer.swift */,
+			);
+			path = Inference;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D0CA2ECB46D2B4FDA80A257 /* PocketMind */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0454AEED2E5303BEEF577B80 /* Build configuration list for PBXNativeTarget "PocketMind" */;
+			buildPhases = (
+				C1D58995A726578962E8A5E8 /* Sources */,
+				29DEBFBE883BBD5B67306C0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketMind;
+			packageProductDependencies = (
+			);
+			productName = PocketMind;
+			productReference = AC62D105304C003E0302B09B /* PocketMind.app */;
+			productType = "com.apple.product-type.application";
+		};
+		977783F5F80AEF5A0CA38C05 /* PocketMindUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC403CED6E08F9EC0C5D3953 /* Build configuration list for PBXNativeTarget "PocketMindUITests" */;
+			buildPhases = (
+				55E5926CC3F05E7A9CEA9368 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CB2AC70D8BD655F9A9E54C2 /* PBXTargetDependency */,
+			);
+			name = PocketMindUITests;
+			packageProductDependencies = (
+			);
+			productName = PocketMindUITests;
+			productReference = 574147C5CD4FB325A4A68054 /* PocketMindUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		CD9E3C191D564FBF4E88DFCC /* PocketMindTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C58ECE3489A0BEEBAE4380E3 /* Build configuration list for PBXNativeTarget "PocketMindTests" */;
+			buildPhases = (
+				360F174056A6AE2A50547E41 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F7523867B3E778925F927CD /* PBXTargetDependency */,
+			);
+			name = PocketMindTests;
+			packageProductDependencies = (
+			);
+			productName = PocketMindTests;
+			productReference = 496CEA815F3CE084AE84F4DB /* PocketMindTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6D1E71B52054D88B58BBE3A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					1D0CA2ECB46D2B4FDA80A257 = {
+						DevelopmentTeam = 3V97P38NY2;
+						ProvisioningStyle = Automatic;
+					};
+					977783F5F80AEF5A0CA38C05 = {
+						DevelopmentTeam = 3V97P38NY2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1D0CA2ECB46D2B4FDA80A257;
+					};
+					CD9E3C191D564FBF4E88DFCC = {
+						DevelopmentTeam = 3V97P38NY2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 03AF380065B3222D502B9B57 /* Build configuration list for PBXProject "PocketMind" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E1655B2260A05B42271CDFC3;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 38B25B0EF8375FC325BBA43F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D0CA2ECB46D2B4FDA80A257 /* PocketMind */,
+				CD9E3C191D564FBF4E88DFCC /* PocketMindTests */,
+				977783F5F80AEF5A0CA38C05 /* PocketMindUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29DEBFBE883BBD5B67306C0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC522C5539E9F8C829335E08 /* PrivacyInfo.xcprivacy in Resources */,
+				0BDC6D14E7A4491629176D04 /* pocketmind_llama32_1b.mlpackage in Resources */,
+				40D7C117318AB1733B013AD8 /* tokenizer.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		360F174056A6AE2A50547E41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E98556CEDD45A4A933EECAE /* CapabilityBoundaryClassifierTests.swift in Sources */,
+				A88BE20D08EAF1D36E994667 /* ChatViewModelTests.swift in Sources */,
+				5CF99D6A90BAE888005F71E0 /* InferenceEngineTests.swift in Sources */,
+				27E9C7129E095B6F76EC428A /* MemoryManagerTests.swift in Sources */,
+				7E0194FF8C24CEE410AFE5CB /* ModelDownloadManagerTests.swift in Sources */,
+				38B1425EDFFF68C6161B678C /* ModelInfoTests.swift in Sources */,
+				FF6F9595D5F3B0EF1C1CC010 /* PrivacyVaultTests.swift in Sources */,
+				F1C72AA154443117329A31BB /* TokenizerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55E5926CC3F05E7A9CEA9368 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A89D2A71339C28419176D92 /* ChatUITests.swift in Sources */,
+				29D47972F4843C2864974C2A /* OnboardingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1D58995A726578962E8A5E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				690711168E51B455855CC544 /* AppDelegate.swift in Sources */,
+				8A2AC559AF3D1D5A7693E638 /* CapabilityBoundaryClassifier.swift in Sources */,
+				71248BB4E0EFEFB573E87D62 /* CapabilityBoundaryView.swift in Sources */,
+				45D45DC3B74FB561223E8B41 /* ChatView.swift in Sources */,
+				716A254B9231CA9AC6569AA7 /* ChatViewModel.swift in Sources */,
+				18A6181102A5680FCD4864F0 /* ClassifierRules.swift in Sources */,
+				934FC568DDB724F803FC2B6E /* Constants.swift in Sources */,
+				C22D0ECEEB75B0F4DC917D58 /* ContentRootView.swift in Sources */,
+				79AB5F4CBB30CCD1CA1AC32F /* Conversation.swift in Sources */,
+				08EB6ADFEB990ABD64515542 /* EmbeddingService.swift in Sources */,
+				72DB9E2EFDC4EE7B1470A77D /* InferenceEngine.swift in Sources */,
+				66E12CC187F891DD8DAD1308 /* InferenceToken.swift in Sources */,
+				BA6E5E203F9BB6BD6338142C /* MemoryManager.swift in Sources */,
+				F137175724E9F743613DC6C5 /* MessageBubbleView.swift in Sources */,
+				E7A3302627AF36B14BD1FDB5 /* ModelDownloadManager.swift in Sources */,
+				A447BEAC974672DEFA87CF49 /* ModelDownloadView.swift in Sources */,
+				BA54DEF5DC40B1CB6D264E23 /* ModelInfo.swift in Sources */,
+				B2B787398EE3829D8FD69D21 /* ModelSelectionView.swift in Sources */,
+				1FE1B85178FEE712EC87CF2D /* NetworkMonitor.swift in Sources */,
+				2AF6A3B01C4514836C3FDA0C /* OnboardingCompleteView.swift in Sources */,
+				E2421DA10E00200AAF40B61D /* OnboardingFlowView.swift in Sources */,
+				7650AE80E3F662BA067A5183 /* PocketMindApp.swift in Sources */,
+				ACF692D98042EB67931CD08D /* PrivacyVault.swift in Sources */,
+				451D90934E1753E9E6D824F3 /* QueryCapability.swift in Sources */,
+				CB121870246D423CDBB42B34 /* RAGEngine.swift in Sources */,
+				976848EAE4242B6EC020274C /* SecureEnclaveKeyManager.swift in Sources */,
+				D402760F8A7EC61D1826C8FD /* SettingsView.swift in Sources */,
+				F5F684AD2F0142A40810FA43 /* TextChunker.swift in Sources */,
+				7EC73A336D5B3E646935578B /* Tokenizer.swift in Sources */,
+				B6EC4B2399B466763C01CE23 /* TypingIndicatorView.swift in Sources */,
+				E92981675684D64C2E4ADA3D /* VectorStore.swift in Sources */,
+				F38A5A9E332242EBFA44718D /* VoiceInputService.swift in Sources */,
+				CE0401D01A37ED1FF4BC0D81 /* WelcomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F7523867B3E778925F927CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D0CA2ECB46D2B4FDA80A257 /* PocketMind */;
+			targetProxy = 6F2387FF6022A86ADA1806D0 /* PBXContainerItemProxy */;
+		};
+		5CB2AC70D8BD655F9A9E54C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D0CA2ECB46D2B4FDA80A257 /* PocketMind */;
+			targetProxy = 9C9FEFEB0118C38466AFB111 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3C0B0B1AFDFE411FF771668B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "PocketMind/Supporting Files/PocketMind.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = "PocketMind/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aryan.pocketmind;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		67919A695D2B95FAAF5B3849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aryan.pocketmind.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketMind.app/PocketMind";
+			};
+			name = Release;
+		};
+		7B967BBF63A0F44EFF66036B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aryan.pocketmind.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketMind;
+			};
+			name = Debug;
+		};
+		8B214DF00E0750B6F2FEEEE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 3V97P38NY2;
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		ADD0A54FFC4065638F3D408E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3V97P38NY2;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+		BC21EE0DBE224777F0D4BD93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "PocketMind/Supporting Files/PocketMind.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = "PocketMind/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aryan.pocketmind;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0ECFCBC1B1C9B2F94C4878F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aryan.pocketmind.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketMind.app/PocketMind";
+			};
+			name = Debug;
+		};
+		EB0D0DAB5CBB2F8AD1E29DE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aryan.pocketmind.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketMind;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03AF380065B3222D502B9B57 /* Build configuration list for PBXProject "PocketMind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADD0A54FFC4065638F3D408E /* Debug */,
+				8B214DF00E0750B6F2FEEEE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		0454AEED2E5303BEEF577B80 /* Build configuration list for PBXNativeTarget "PocketMind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC21EE0DBE224777F0D4BD93 /* Debug */,
+				3C0B0B1AFDFE411FF771668B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C58ECE3489A0BEEBAE4380E3 /* Build configuration list for PBXNativeTarget "PocketMindTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0ECFCBC1B1C9B2F94C4878F /* Debug */,
+				67919A695D2B95FAAF5B3849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CC403CED6E08F9EC0C5D3953 /* Build configuration list for PBXNativeTarget "PocketMindUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B967BBF63A0F44EFF66036B /* Debug */,
+				EB0D0DAB5CBB2F8AD1E29DE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6D1E71B52054D88B58BBE3A8 /* Project object */;
+}

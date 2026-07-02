@@ -135,8 +135,8 @@ struct CapabilityBoundaryClassifier {
     private func applyMLModel(_ normalized: String) -> QueryCapability? {
         guard let model = nlModel else { return nil }
 
-        let prediction = model.predictedLabel(for: normalized)
-        guard prediction == "requires_live_data" else { return nil }
+        guard let prediction = model.predictedLabel(for: normalized),
+              prediction == "requires_live_data" else { return nil }
 
         // Check confidence meets threshold
         let probs = model.predictedLabelHypotheses(for: normalized, maximumCount: 2)

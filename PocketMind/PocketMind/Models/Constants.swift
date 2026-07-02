@@ -50,10 +50,25 @@ enum Constants {
         static let memoryPressureThresholdBytes: Int64 = 500 * 1024 * 1024 // 500 MB
         /// Default maximum tokens generated per response.
         static let defaultMaxTokens = 512
-        /// Default sampling temperature.
-        static let defaultTemperature: Float = 0.7
+        /// Lower temperature reduces hallucinations at the cost of creativity.
+        static let defaultTemperature: Float = 0.3
         /// Default top-p nucleus sampling threshold.
         static let defaultTopP: Float = 0.9
+    }
+
+    // MARK: - RAG
+
+    enum RAG {
+        /// Maximum number of chunks retrieved per query.
+        static let topK = 1
+        /// Minimum cosine similarity for a chunk to be considered relevant.
+        /// Apple's NLEmbedding L2-normalised dot-product scores range roughly 0–1.
+        static let similarityThreshold: Float = 0.35
+        /// Token budget reserved for the injected RAG context block per turn.
+        /// Keep this plus the system prompt under ~70 tokens so user messages fit.
+        static let contextTokenBudget = 60
+        /// Prefix injected before the retrieved passage in the prompt.
+        static let contextPrefix = "Reference:\n"
     }
 
     // MARK: - UI

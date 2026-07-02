@@ -17,8 +17,8 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
 
     // Inference
-    @AppStorage("inferenceTemperature") private var temperature: Double = Constants.Inference.defaultTemperature
-    @AppStorage("inferenceTopP")        private var topP: Double = Constants.Inference.defaultTopP
+    @AppStorage("inferenceTemperature") private var temperature: Double = Double(Constants.Inference.defaultTemperature)
+    @AppStorage("inferenceTopP")        private var topP: Double = Double(Constants.Inference.defaultTopP)
     @AppStorage("inferenceMaxTokens")   private var maxTokens: Int = Constants.Inference.defaultMaxTokens
 
     // Privacy / network
@@ -29,7 +29,7 @@ struct SettingsView: View {
 
     // Danger zone
     @State private var showDeleteConfirmation = false
-    @State private var vault: PrivacyVault? = try? PrivacyVault()
+    @State private var vault: PrivacyVault?
 
     var body: some View {
         NavigationStack {
@@ -135,6 +135,7 @@ struct SettingsView: View {
             }
         }
         .preferredColorScheme(preferredScheme)
+        .task { vault = try? await PrivacyVault() }
     }
 
     private var preferredScheme: ColorScheme? {

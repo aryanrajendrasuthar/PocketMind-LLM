@@ -34,7 +34,6 @@ struct OnboardingCompleteView: View {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 72))
                     .foregroundStyle(.green)
-                    .symbolEffect(.bounce, options: .nonRepeating)
 
                 VStack(spacing: 8) {
                     Text("You're All Set")

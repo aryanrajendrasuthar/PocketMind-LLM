@@ -20,102 +20,23 @@ struct ModelDownloadView: View {
 
     @State private var phase: Phase = .idle
 
-    enum Phase { case idle, downloading, verifying, done, failed(String) }
+    enum Phase: Equatable { case idle, downloading, verifying, done, failed(String) }
 
     private var progress: Double { downloadManager.downloadProgress[model.id] ?? 0 }
-    private var errorMessage: String? { downloadManager.downloadError[model.id] }
 
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
 
-            VStack(spacing: 24) {
-                // Icon
-                ZStack {
-                    Circle()
-                        .fill(Color.blue.opacity(0.1))
-                        .frame(width: 96, height: 96)
-                    Image(systemName: phaseIcon)
-                        .font(.system(size: 40))
-                        .foregroundStyle(.blue)
-                        .symbolEffect(.pulse, isActive: phase == .downloading)
-                }
-
-                Text(phaseTitle)
-                    .font(.title2.bold())
-                    .multilineTextAlignment(.center)
-
-                Text(phaseSubtitle)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-            }
+            headerSection
 
             Spacer()
 
-            // Progress section
-            VStack(spacing: 16) {
-                if case .downloading = phase {
-                    VStack(spacing: 8) {
-                        ProgressView(value: progress)
-                            .tint(.blue)
-                        HStack {
-                            Text(String(format: "%.0f%%", progress * 100))
-                                .font(.caption.monospacedDigit())
-                            Spacer()
-                            Text(String(format: "%.1f / %.1f GB",
-                                        progress * model.fileSizeGB,
-                                        model.fileSizeGB))
-                                .font(.caption.monospacedDigit())
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    .padding(.horizontal, 32)
-                }
-
-                if case .verifying = phase {
-                    HStack(spacing: 8) {
-                        ProgressView().scaleEffect(0.8)
-                        Text("Verifying SHA-256…").font(.subheadline).foregroundStyle(.secondary)
-                    }
-                }
-            }
+            progressSection
 
             Spacer()
 
-            // Action button
-            VStack(spacing: 12) {
-                if case .failed(let msg) = phase {
-                    Text(msg)
-                        .font(.caption)
-                        .foregroundStyle(.red)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 32)
-                }
-
-                Button(action: handleAction) {
-                    Text(actionLabel)
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 14))
-                }
-                .padding(.horizontal, 32)
-                .disabled(phase == .verifying)
-
-                if case .downloading = phase {
-                    Button("Cancel") {
-                        downloadManager.cancelDownload(model.id)
-                        phase = .idle
-                    }
-                    .foregroundStyle(.secondary)
-                    .font(.subheadline)
-                }
-            }
-            .padding(.bottom, 40)
+            actionSection
         }
         .onChange(of: downloadManager.downloadedModels) { _, downloaded in
             if downloaded.contains(model.id) {
@@ -139,6 +60,101 @@ struct ModelDownloadView: View {
                 phase = .done
             }
         }
+    }
+
+    private var headerSection: some View {
+        VStack(spacing: 24) {
+            ZStack {
+                Circle()
+                    .fill(Color.blue.opacity(0.1))
+                    .frame(width: 96, height: 96)
+
+                Image(systemName: phaseIcon)
+                    .font(.system(size: 40))
+                    .foregroundStyle(.blue)
+                    .symbolEffect(.pulse, isActive: phase == .downloading)
+            }
+
+            Text(phaseTitle)
+                .font(.title2.bold())
+                .multilineTextAlignment(.center)
+
+            Text(phaseSubtitle)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+        }
+    }
+
+    @ViewBuilder
+    private var progressSection: some View {
+        VStack(spacing: 16) {
+            if phase == .downloading {
+                VStack(spacing: 8) {
+                    ProgressView(value: progress)
+                        .tint(.blue)
+
+                    HStack {
+                        Text(String(format: "%.0f%%", progress * 100))
+                            .font(.caption.monospacedDigit())
+
+                        Spacer()
+
+                        Text(String(format: "%.1f / %.1f GB", progress * model.fileSizeGB, model.fileSizeGB))
+                            .font(.caption.monospacedDigit())
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .padding(.horizontal, 32)
+            }
+
+            if phase == .verifying {
+                HStack(spacing: 8) {
+                    ProgressView()
+                        .scaleEffect(0.8)
+
+                    Text("Verifying SHA-256…")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var actionSection: some View {
+        VStack(spacing: 12) {
+            if case .failed(let message) = phase {
+                Text(message)
+                    .font(.caption)
+                    .foregroundStyle(.red)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+            }
+
+            Button(action: handleAction) {
+                Text(actionLabel)
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
+            }
+            .padding(.horizontal, 32)
+            .disabled(phase == .verifying)
+
+            if phase == .downloading {
+                Button("Cancel") {
+                    downloadManager.cancelDownload(model.id)
+                    phase = .idle
+                }
+                .foregroundStyle(.secondary)
+                .font(.subheadline)
+            }
+        }
+        .padding(.bottom, 40)
     }
 
     // MARK: - Helpers

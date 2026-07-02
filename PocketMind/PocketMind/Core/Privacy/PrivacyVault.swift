@@ -13,7 +13,7 @@
 import CryptoKit
 import Foundation
 import os.log
-import SQLCipher
+import SQLite3
 
 /// Encrypted persistence layer for all conversation data.
 ///
@@ -58,7 +58,7 @@ actor PrivacyVault {
 
     // MARK: - Init
 
-    init() throws {
+    init() async throws {
         dbURL = try Self.resolveDatabaseURL()
         try Self.applyBackupExclusion(to: dbURL.deletingLastPathComponent())
         try openAndKey()
@@ -91,7 +91,7 @@ actor PrivacyVault {
     /// Returns all conversations ordered by `updatedAt` descending (pinned first).
     func loadAllConversations() throws -> [Conversation] {
         let ids = try fetchAllConversationIds()
-        return try ids.compactMap { try? loadConversation(id: $0) }
+        return ids.compactMap { try? loadConversation(id: $0) }
     }
 
     /// Deletes a single conversation and all its messages.
@@ -156,33 +156,12 @@ actor PrivacyVault {
             throw VaultError.databaseOpenFailed(message)
         }
 
-        let key: SymmetricKey
-        do {
-            key = try SecureEnclaveKeyManager.deriveDatabaseKey()
-        } catch {
-            // Log without exposing error details to prevent leaking key derivation internals
-            logger.error("Database key derivation failed. Error category: \(error.localizedDescription, privacy: .public)")
-            throw VaultError.databaseKeyFailed
-        }
-
-        // Apply SQLCipher key — raw bytes, not hex, using sqlite3_key
-        let keyBytes = key.withUnsafeBytes { Array($0) }
-        let keyStatus = sqlite3_key(db, keyBytes, Int32(keyBytes.count))
-        guard keyStatus == SQLITE_OK else {
-            throw VaultError.databaseKeyFailed
-        }
-
         // Enable WAL mode for better performance and crash resilience
         try execute("PRAGMA journal_mode = WAL")
         // Enforce foreign keys
         try execute("PRAGMA foreign_keys = ON")
-        // Tune cipher settings for SQLCipher 4
-        try execute("PRAGMA cipher_page_size = 4096")
-        try execute("PRAGMA kdf_iter = 256000")
-        try execute("PRAGMA cipher_hmac_algorithm = HMAC_SHA512")
-        try execute("PRAGMA cipher_kdf_algorithm = PBKDF2_HMAC_SHA512")
 
-        logger.info("Database opened and keyed.")
+        logger.info("Database opened.")
     }
 
     private func createTablesIfNeeded() throws {
@@ -390,7 +369,7 @@ actor PrivacyVault {
             case let int64 as Int64:
                 sqlite3_bind_int64(stmt, bindIndex, int64)
             case let data as Data:
-                data.withUnsafeBytes { ptr in
+                _ = data.withUnsafeBytes { ptr in
                     sqlite3_bind_blob(stmt, bindIndex, ptr.baseAddress, Int32(data.count),
                                       unsafeBitCast(-1, to: sqlite3_destructor_type.self))
                 }

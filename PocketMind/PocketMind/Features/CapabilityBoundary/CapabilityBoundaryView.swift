@@ -112,7 +112,7 @@ struct CapabilityBoundaryView: View {
         case .requiresLiveData(let reason, _):
             return reason
         case .requiresSearch(let query):
-            return "Answering "\(query)" requires searching the web, which isn't possible offline."
+            return "Answering \"\(query)\" requires searching the web, which isn't possible offline."
         case .fullyOffline:
             return ""
         }

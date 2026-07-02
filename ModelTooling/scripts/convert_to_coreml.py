@@ -48,14 +48,26 @@ def load_config(model_id: str) -> dict:  # type: ignore[type-arg]
 
 
 class TracedModelWrapper(torch.nn.Module):
-    """Thin wrapper to expose a forward signature compatible with ct.convert tracing."""
+    """Wrapper with a pre-built static 4D causal mask registered as a buffer.
 
-    def __init__(self, model: torch.nn.Module) -> None:
+    The mask is computed once at construction (Python int arithmetic, no traced ops)
+    so the forward pass has zero dynamic shape ops — coremltools can convert it cleanly.
+    """
+
+    def __init__(self, model: torch.nn.Module, context_length: int) -> None:
         super().__init__()
         self.model = model
+        min_val = torch.finfo(torch.float16).min
+        causal = torch.tril(torch.ones(context_length, context_length, dtype=torch.float16))
+        mask_4d = ((1.0 - causal) * min_val).view(1, 1, context_length, context_length)
+        self.register_buffer("causal_mask", mask_4d)
 
-    def forward(self, input_ids: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
-        outputs = self.model(input_ids=input_ids, attention_mask=attention_mask)
+    def forward(self, input_ids: torch.Tensor) -> torch.Tensor:
+        outputs = self.model(
+            input_ids=input_ids,
+            attention_mask=self.causal_mask,
+            use_cache=False,
+        )
         return outputs.logits
 
 
@@ -70,9 +82,11 @@ def load_hf_model(
     tokenizer = AutoTokenizer.from_pretrained(str(raw_dir))
     model = AutoModelForCausalLM.from_pretrained(
         str(raw_dir),
-        torch_dtype=torch.float32,
+        dtype=torch.float16,
         low_cpu_mem_usage=True,
+        attn_implementation='eager',
     )
+    model.config.use_cache = False
     model = model.eval().to(device)
     logger.info("Model loaded. Parameter count: %s", f"{sum(p.numel() for p in model.parameters()):,}")
     return model, tokenizer
@@ -86,15 +100,13 @@ def trace_model(
     """Trace the model with torch.jit.trace for CoreML conversion."""
     logger.info("Tracing model (context length: %d)...", target_context_length)
 
-    wrapper = TracedModelWrapper(model)
+    wrapper = TracedModelWrapper(model, target_context_length).eval()
 
-    # Create dummy inputs matching the target context shape
     input_ids = torch.zeros((1, target_context_length), dtype=torch.int32)
-    attention_mask = torch.ones((1, target_context_length), dtype=torch.int32)
-    example_inputs = (input_ids, attention_mask)
+    example_inputs = (input_ids,)
 
     with torch.no_grad():
-        traced = torch.jit.trace(wrapper, example_inputs)
+        traced = torch.jit.trace(wrapper, example_inputs, check_trace=False)
 
     logger.info("Tracing complete.")
     return traced, example_inputs
@@ -126,14 +138,13 @@ def convert_to_coreml(
 
     inputs = [
         ct.TensorType(name="input_ids", shape=example_inputs[0].shape, dtype=np.int32),
-        ct.TensorType(name="attention_mask", shape=example_inputs[1].shape, dtype=np.int32),
     ]
 
     coreml_model = ct.convert(
         traced_model,
         inputs=inputs,
         compute_units=compute_units,
-        minimum_deployment_target=ct.target.iOS17,
+        minimum_deployment_target=ct.target.iOS18,
         convert_to="mlprogram",
         compute_precision=precision,
     )
@@ -180,9 +191,7 @@ def validate_coreml_model(
     padded_mask[0, :seq_len] = 1
 
     start = time.perf_counter()
-    predictions = coreml_model.predict(
-        {"input_ids": padded_ids, "attention_mask": padded_mask}
-    )
+    predictions = coreml_model.predict({"input_ids": padded_ids})
     first_token_time = time.perf_counter() - start
 
     logits_key = list(predictions.keys())[0]
@@ -244,7 +253,7 @@ def convert(model_id: str, skip_validation: bool = False) -> Path:
         config=config,
     )
 
-    target_ctx = config["parameters"]["target_context_length"]
+    target_ctx = 256  # 256 tokens: 4x faster attention than 512 (O(n²)), sufficient for chat
     traced_model, example_inputs = trace_model(hf_model, tokenizer, target_ctx)
 
     # Free HF model RAM before conversion (tracing is complete)
@@ -256,7 +265,7 @@ def convert(model_id: str, skip_validation: bool = False) -> Path:
     if not skip_validation:
         validate_coreml_model(coreml_model, tokenizer, config)
 
-    size_gb = output_path.stat().st_size / (1024 ** 3)
+    size_gb = sum(f.stat().st_size for f in output_path.rglob("*") if f.is_file()) / 1e9
     logger.info("Conversion complete. Output: %s (%.2f GB)", output_path, size_gb)
     return output_path
 

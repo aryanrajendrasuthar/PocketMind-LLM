@@ -120,7 +120,7 @@ enum SecureEnclaveKeyManager {
     // MARK: - Key derivation
 
     private static func deriveKey(from enclavePrivateKey: SecKey) throws -> SymmetricKey {
-        guard let enclavePublicKey = SecKeyCopyPublicKey(enclavePrivateKey) else {
+        guard SecKeyCopyPublicKey(enclavePrivateKey) != nil else {
             throw KeyManagerError.publicKeyExtractionFailed
         }
 
@@ -130,8 +130,8 @@ enum SecureEnclaveKeyManager {
 
         // Perform ECDH: Secure Enclave private × ephemeral public → shared secret
         let params: [String: Any] = [
-            SecKeyKeyExchangeParameter.requestedSize.rawValue: 32,
-            SecKeyKeyExchangeParameter.sharedInfo.rawValue: Data("pocketmind.dbkey.v1".utf8),
+            SecKeyKeyExchangeParameter.requestedSize.rawValue as String: 32,
+            SecKeyKeyExchangeParameter.sharedInfo.rawValue as String: Data("pocketmind.dbkey.v1".utf8),
         ]
 
         // Convert ephemeral public key bytes into a SecKey for the exchange

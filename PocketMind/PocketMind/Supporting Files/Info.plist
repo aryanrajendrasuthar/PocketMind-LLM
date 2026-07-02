@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleDisplayName</key>
-	<string>PocketMind</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,56 +13,25 @@
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
-	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
+	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
-
-	<!-- App Transport Security: no arbitrary loads, CDN only -->
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<false/>
-	</dict>
-
-	<!-- Certificate pinning: SHA-256 hex of the CDN leaf certificate's SubjectPublicKeyInfo (DER).
-	     Generate with: openssl s_client -connect models.pocketmind.app:443 | \
-	                    openssl x509 -pubkey -noout | \
-	                    openssl pkey -pubin -outform DER | \
-	                    sha256sum
-	     Leave empty string to skip pinning in local development (see ModelDownloadManager). -->
-	<key>PinnedCDNPublicKeyHash</key>
-	<string></string>
-
-	<!-- Privacy usage strings -->
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>PocketMind uses on-device speech recognition to let you speak your messages. Audio is never sent to Apple's servers when using local recognition.</string>
+	<string>1</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>PocketMind needs microphone access so you can speak your messages instead of typing.</string>
-	<key>NSFaceIDUsageDescription</key>
-	<string>PocketMind uses Face ID to protect your conversation history. Your data is never sent off this device.</string>
-
-	<!-- UI -->
-	<key>UILaunchScreen</key>
-	<dict/>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	<string>PocketMind uses the microphone to let you speak your messages. Audio is processed entirely on your device and never sent anywhere.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>PocketMind uses on-device speech recognition to convert your voice to text. Everything stays on your device.</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 </dict>
 </plist>

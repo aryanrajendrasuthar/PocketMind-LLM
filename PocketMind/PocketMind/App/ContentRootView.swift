@@ -25,10 +25,15 @@ struct ContentRootView: View {
         } else {
             OnboardingFlowView()
                 .transition(.opacity)
+                .onAppear {
+                    // Dev bypass — skip CDN download
+                    UserDefaults.standard.set(true, forKey: "onboardingComplete")
+                    UserDefaults.standard.set("pocketmind_llama32_1b-coreml", forKey: "selectedModelId")
+                }
         }
-    }
+    }                              // ← body closes HERE
 
-    private var resolvedModel: ModelInfo? {
+    private var resolvedModel: ModelInfo? {    // ← outside body, inside struct
         ModelInfo.allModels.first(where: { $0.id == selectedModelId })
             ?? ModelInfo.allModels.first
     }

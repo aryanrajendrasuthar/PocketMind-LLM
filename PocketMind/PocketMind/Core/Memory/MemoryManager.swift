@@ -92,10 +92,12 @@ actor MemoryManager {
     /// - Returns: `(trimmedMessages, wasTrimmed)` — the second value is `true` if any messages were removed.
     func trimContext(
         messages: [ChatMessage],
-        modelContextLength: Int
+        modelContextLength: Int,
+        responseHeadroom: Int = Constants.Inference.contextHeadroomTokens
     ) -> (messages: [ChatMessage], wasTrimmed: Bool) {
         let limit = min(modelContextLength, Constants.Inference.maxContextTokens)
-        let budget = limit - Constants.Inference.contextHeadroomTokens
+        // Reserve space for the next response; ensure budget is always positive.
+        let budget = max(1, limit - min(responseHeadroom, limit - 1))
 
         // Separate system prompt if present
         var systemPrompt: ChatMessage?

@@ -63,6 +63,7 @@ final class ModelDownloadManager: NSObject, ObservableObject {
         logger.info("Starting download: \(model.displayName, privacy: .public)")
 
         let task = session.downloadTask(with: url)
+        task.taskDescription = model.id   // nonisolated delegate methods read this
         taskMap[task] = model.id
         activeDownloads.insert(model.id)
         downloadProgress[model.id] = 0
@@ -190,7 +191,7 @@ extension ModelDownloadManager: URLSessionDownloadDelegate {
         downloadTask: URLSessionDownloadTask,
         didFinishDownloadingTo location: URL
     ) {
-        guard let modelId = taskMap[downloadTask] else { return }
+        guard let modelId = downloadTask.taskDescription else { return }
 
         Task { @MainActor in
             finalizeDownload(modelId: modelId, tempURL: location)
@@ -204,7 +205,7 @@ extension ModelDownloadManager: URLSessionDownloadDelegate {
         totalBytesWritten: Int64,
         totalBytesExpectedToWrite: Int64
     ) {
-        guard let modelId = taskMap[downloadTask], totalBytesExpectedToWrite > 0 else { return }
+        guard let modelId = downloadTask.taskDescription, totalBytesExpectedToWrite > 0 else { return }
         let progress = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
         Task { @MainActor in
             downloadProgress[modelId] = progress
@@ -216,7 +217,7 @@ extension ModelDownloadManager: URLSessionDownloadDelegate {
         task: URLSessionTask,
         didCompleteWithError error: Error?
     ) {
-        guard let error, let modelId = taskMap[task] else { return }
+        guard let error, let modelId = task.taskDescription else { return }
         let message = (error as NSError).code == NSURLErrorCancelled
             ? nil
             : error.localizedDescription
@@ -259,7 +260,8 @@ extension ModelDownloadManager: URLSessionDownloadDelegate {
             return
         }
 
-        guard let leaf = SecTrustGetCertificateAtIndex(serverTrust, 0),
+        guard let certificateChain = SecTrustCopyCertificateChain(serverTrust) as? [SecCertificate],
+              let leaf = certificateChain.first,
               let publicKey = SecCertificateCopyKey(leaf),
               let keyData = SecKeyCopyExternalRepresentation(publicKey, nil) as Data?
         else {
